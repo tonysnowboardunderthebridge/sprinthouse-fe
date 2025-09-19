@@ -15,13 +15,51 @@
     "title": "menu.new_vehicles",
     "url": "/{{ locale }}/new-vehicles",
     "icon": "fa-solid fa-car",
-    "children": []
+    "children": [{
+        "title": "menu.new_vehicles_menu.golf_line",
+        "url": "/{{ locale }}/new_vehicles/breve-termine"
+      },
+      {
+        "title": "menu.new_vehicles_menu.transport_of_people",
+        "url": "/{{ locale }}/new_vehicles/lungo-termine"
+      },
+      {
+        "title": "menu.new_vehicles_menu.freight_transport",
+        "url": "/{{ locale }}/new_vehicles/lungo-termine"
+      },
+      {
+        "title": "menu.new_vehicles_menu.road_vehicles",
+        "url": "/{{ locale }}/new_vehicles/breve-termine"
+      },
+      {
+        "title": "menu.new_vehicles_menu.special_vehicles",
+        "url": "/{{ locale }}/new_vehicles/breve-termine"
+      }]
   },
   {
     "title": "menu.used_vehicles",
     "url": "/{{ locale }}/used-vehicles",
     "icon": "fa-solid fa-car-side",
-    "children": []
+    "children": [{
+        "title": "menu.used_vehicles_menu.golf_line",
+        "url": "/{{ locale }}/used_vehicles/golf-line"
+      },
+      {
+        "title": "menu.used_vehicles_menu.transport_of_people",
+        "url": "/{{ locale }}/used_vehicles/lungo-termine"
+      },
+      {
+        "title": "menu.used_vehicles_menu.freight_transport",
+        "url": "/{{ locale }}/used_vehicles/lungo-termine"
+      },
+      {
+        "title": "menu.used_vehicles_menu.special_vehicles",
+        "url": "/{{ locale }}/used_vehicles/breve-termine"
+      },
+      {
+        "title": "menu.used_vehicles_menu.cart",
+        "url": "/{{ locale }}/used_vehicles/cart"
+      }]
   },
   {
     "title": "menu.rent",

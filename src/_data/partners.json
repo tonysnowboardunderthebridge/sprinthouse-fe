@@ -1,0 +1,23 @@
+[
+  {
+    "image": "/assets/images/partners/partner-preco.png",
+    "alt": "Preco System",
+    "name": "Preco System",
+    "text": "partners.preco_system.description",
+    "link": "https://www.plasticariciclata.it/"
+  },
+  {
+    "image": "/assets/images/partners/partner-skyfitness.png",
+    "alt": "Sky fitness",
+    "name": "Sky fitness",
+    "text": "partners.sky_fitness.description",
+    "link": "https://www.skyfitness.it/"
+  },
+  {
+    "image": "/assets/images/partners/partner-wayel.png",
+    "alt": "Wayel",
+    "name": "Wayel",
+    "text": "partners.wayel.description",
+    "link": "https://www.wayel.it/"
+  }
+]

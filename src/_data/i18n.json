@@ -12,6 +12,20 @@
         "golf_line": "Linea Golf",
         "transport_of_people": "Trasporto persone",
         "freight_transport": "Trasporto merci"
+      },
+      "new_vehicles_menu": {
+        "golf_line": "Linea Golf",
+        "transport_of_people": "Trasporto persone",
+        "freight_transport": "Trasporto merci",
+        "road_vehicles": "Veicoli stradali",
+        "special_vehicles": "Veicoli speciali"
+      },
+      "used_vehicles_menu": {
+        "golf_line": "Linea Golf",
+        "transport_of_people": "Trasporto persone",
+        "freight_transport": "Trasporto merci",
+        "special_vehicles": "Veicoli speciali",
+        "cart": "Carrelli"
       }
     },
     "carousel": {
@@ -24,7 +38,16 @@
       "request_2": "Per richiedere assistenza tecnica"
     },
     "partners": {
-      "title": "I nostri partner"
+      "title": "I nostri partner",
+      "preco_system": {
+        "description": "Arredi e giochi in plastica riciclata"
+      },
+      "sky_fitness": {
+        "description": "Impianti sportivi - aree fitness all'aperto"
+      },
+      "wayel": {
+        "description": "Biciclette elettriche a pedalata assistita"
+      }
     },
     "footer": "© 2025 La mia azienda"
   },
@@ -32,23 +55,51 @@
     "menu": {
       "home": "Home",
       "sprint": "Sprint",
-      "new_vehicles": "New vehicles",
-      "used_vehicles": "Used vehicles",
-      "rent": "Rent",
+      "new_vehicles": "New Vehicles",
+      "used_vehicles": "Used Vehicles",
+      "rent": "Rental",
       "services": "Services",
-      "batteries": "Batteries"
+      "batteries": "Batteries",
+      "rent_menu": {
+        "golf_line": "Golf Line",
+        "transport_of_people": "Passenger Transport",
+        "freight_transport": "Freight Transport"
+      },
+      "new_vehicles_menu": {
+        "golf_line": "Golf Line",
+        "transport_of_people": "Passenger Transport",
+        "freight_transport": "Freight Transport",
+        "road_vehicles": "Road Vehicles",
+        "special_vehicles": "Special Vehicles"
+      },
+      "used_vehicles_menu": {
+        "golf_line": "Golf Line",
+        "transport_of_people": "Passenger Transport",
+        "freight_transport": "Freight Transport",
+        "special_vehicles": "Special Vehicles",
+        "cart": "Carts"
+      }
     },
     "carousel": {
       "title": "Welcome to our website"
     },
     "about": {
-      "title": "About us",
-      "text": "Sprint is a company founded in 2005, a leader in the sale, rental, and service of new and used electric and internal combustion engine vehicles throughout Sardinia. Our business is specifically aimed at all hospitality facilities, hotels, resorts, holiday villages, campsites, nurseries, golf courses, ports, airports, and industrial facilities.",
+      "title": "About Us",
+      "text": "Sprint is a company founded in 2005, a leader in the sale, rental, and service throughout Sardinia of electric and combustion engine vehicles, new and used. Our business is especially aimed at hotels, resorts, tourist villages, campsites, nurseries, golf courses, ports, airports, and industries.",
       "request_1": "To request a quote or information",
       "request_2": "To request technical assistance"
     },
     "partners": {
-      "title": "Our partners"
+      "title": "Our Partners",
+      "preco_system": {
+        "description": "Furniture and toys made from recycled plastic"
+      },
+      "sky_fitness": {
+        "description": "Sports facilities - outdoor fitness areas"
+      },
+      "wayel": {
+        "description": "Electric pedal-assisted bicycles"
+      }
     },
     "footer": "© 2025 My Company"
   }

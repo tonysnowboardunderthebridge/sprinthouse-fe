@@ -1,26 +1,88 @@
 <section id="carousel" class="relative w-full h-full min-h-[calc(100vh-20rem)] overflow-hidden">
   <div id="carousel-slides" class="w-full h-full min-h-[inherit] relative">
-  {% for slide in carousel %}
-    <div 
-      class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 {% if loop.index0 == 0 %}opacity-100{% else %}opacity-0{% endif %}" 
-      style="background-image: url('{{ slide.image }}')"
-      alt="{{ slide.alt }}">
-    </div>
-  {% endfor %}
-</div>
+    {% for slide in carousel %}
+      <div 
+        class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 {% if loop.index0 == 0 %}opacity-100{% else %}opacity-0{% endif %}" 
+        style="background-image: url('{{ slide.image }}')"
+        alt="{{ slide.alt }}">
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Freccette con Font Awesome -->
+  <button id="prev" class="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 hover:text-gray-200 bg-indigo-dye/70 rounded-full w-16 h-16 flex items-center justify-center text-white text-5xl drop-shadow-lg">
+    <i class="fa-solid fa-chevron-left"></i>
+  </button>
+  <button id="next" class="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 hover:text-gray-200 bg-indigo-dye/70 rounded-full w-16 h-16 flex items-center justify-center text-white text-5xl drop-shadow-lg">
+    <i class="fa-solid fa-chevron-right"></i>
+  </button>
+
+  <!-- Pallini con animazione -->
+  <div id="carousel-indicators" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20 bg-indigo-dye/70 px-2 py-1 rounded-full">
+    {% for slide in carousel %}
+      <span class="w-4 h-4 rounded-full bg-white opacity-50 cursor-pointer transition-all duration-300 transform scale-100 {% if loop.index0 == 0 %}opacity-100 scale-125{% endif %}" data-index="{{ loop.index0 }}"></span>
+    {% endfor %}
+  </div>
 </section>
 
 <script>
   const slides = document.querySelectorAll('#carousel-slides > div');
+  const indicators = document.querySelectorAll('#carousel-indicators span');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
   let current = 0;
 
-  setInterval(() => {
-    slides[current].classList.remove('opacity-100');
-    slides[current].classList.add('opacity-0');
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('opacity-100', i === index);
+      slide.classList.toggle('opacity-0', i !== index);
 
-    current = (current + 1) % slides.length;
+      indicators[i].classList.toggle('opacity-100', i === index);
+      indicators[i].classList.toggle('opacity-50', i !== index);
 
-    slides[current].classList.remove('opacity-0');
-    slides[current].classList.add('opacity-100');
-  }, 5000); // cambia ogni 5 secondi
+      indicators[i].classList.toggle('scale-125', i === index);
+      indicators[i].classList.toggle('scale-100', i !== index);
+    });
+    current = index;
+  }
+
+  // Auto slide ogni 5 secondi
+  let interval = setInterval(() => {
+    showSlide((current + 1) % slides.length);
+  }, 5000);
+
+  // Freccette
+  prevBtn.addEventListener('click', () => {
+    showSlide((current - 1 + slides.length) % slides.length);
+    resetInterval();
+  });
+  nextBtn.addEventListener('click', () => {
+    showSlide((current + 1) % slides.length);
+    resetInterval();
+  });
+
+  // Pallini cliccabili e hover
+  indicators.forEach(ind => {
+    ind.addEventListener('click', () => {
+      const idx = parseInt(ind.dataset.index);
+      showSlide(idx);
+      resetInterval();
+    });
+
+    ind.addEventListener('mouseenter', () => {
+      ind.classList.add('scale-125');
+    });
+    ind.addEventListener('mouseleave', () => {
+      if (parseInt(ind.dataset.index) !== current) {
+        ind.classList.remove('scale-125');
+      }
+    });
+  });
+
+  function resetInterval() {
+    clearInterval(interval);
+    interval = setInterval(() => {
+      showSlide((current + 1) % slides.length);
+    }, 5000);
+  }
 </script>

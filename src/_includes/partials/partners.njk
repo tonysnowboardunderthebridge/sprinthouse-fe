@@ -1,17 +1,14 @@
-<section id="partners" class="container my-8">
-  <h2 class="text-2xl font-bold mb-4">{{ "partners.title" | t(locale) }}</h2>
+<section id="partners" class="container mt-20 mb-8">
+  <h2 class="text-2xl font-bold mb-4 text-indigo-dye">{{ "partners.title" | t(locale) }}</h2>
   <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <li class="bg-gray-100 p-4 text-center rounded shadow">
-      <img src="/assets/images/partner-1.jpg" alt="Partner 1" class="mx-auto mb-2 rounded">
-      <span class="font-semibold">Partner 1</span>
-    </li>
-    <li class="bg-gray-100 p-4 text-center rounded shadow">
-      <img src="/assets/images/partner-2.jpg" alt="Partner 2" class="mx-auto mb-2 rounded">
-      <span class="font-semibold">Partner 2</span>
-    </li>
-    <li class="bg-gray-100 p-4 text-center rounded shadow">
-      <img src="/assets/images/partner-2.jpg" alt="Partner 3" class="mx-auto mb-2 rounded">
-      <span class="font-semibold">Partner 3</span>
-    </li>
+    {% for partner in partners %}
+      <li class="bg-indigo-dye/30 p-4 text-center rounded shadow transition-transform transform hover:scale-105 hover:shadow-lg">
+        <a href="{{ partner.link }}" target="_blank">
+          <img src="{{ partner.image }}" alt="{{ partner.alt }}" class="mx-auto mb-2 rounded"/>
+          <p class="font-bold">{{ partner.name }}</p>
+          <p class="font-medium">{{ partner.text | t(locale) }}</p>
+        </a>
+      </li>
+    {% endfor %}
   </ul>
 </section>

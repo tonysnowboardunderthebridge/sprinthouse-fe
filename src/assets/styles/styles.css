@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+@theme {
+    --color-indigo-dye: #2a4e66;
+}

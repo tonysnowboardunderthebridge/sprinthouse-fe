@@ -1,33 +1,120 @@
-<header class="bg-[#2a4e66] text-white p-4 flex justify-between items-center">
-  <!-- Logo a sinistra -->
-  <div class="flex items-center space-x-2">
-    <img src="/assets/images/logo.png" alt="Logo" class="w-[140px] h-auto">
-    <span class="font-bold text-xl">Sprinthouse</span>
-  </div>
+<header class="bg-indigo-dye text-white p-4">
+  <div class="mx-auto flex justify-between items-center">
+    <!-- Logo -->
+    <div class="flex items-center space-x-2">
+      <img src="/assets/images/logo.png" alt="Logo" class="w-[140px] h-auto">
+      <span class="font-bold text-xl">Sprinthouse</span>
+    </div>
 
-  <!-- Menu principale a destra -->
-  <nav>
-    <ul class="flex flex-wrap gap-4 items-center">
-      {% for item in menu %}
-        <li class="relative group">
-          <a href="{{ item.url }}" class="flex items-center gap-1 hover:underline">
-            <i class="{{ item.icon }}"></i>
-            <span>{{ item.title | t(locale) }}</span>
-          </a>
+    <!-- Menu desktop -->
+    <nav class="hidden lg:flex">
+      <ul class="flex gap-6 items-center">
+        {% for item in menu %}
+          <li class="relative">
+            <a href="{{ item.url }}" class="flex items-center gap-1 hover:text-white/70">
+              <i class="{{ item.icon }}"></i>
+              <span>{{ item.title | t(locale) }}</span>
+              {% if item.children and item.children | length %}
+                <i class="fa fa-chevron-down"></i>
+              {% endif %}
 
-          {% if item.children and item.children | length %}
-            <!-- Dropdown menu -->
-            <ul class="absolute left-0 mt-2 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity invisible group-hover:visible min-w-[200px] z-10">
-              {% for child in item.children %}
-                <li>
-                  <a href="{{ child.url }}" class="block px-4 py-2 hover:bg-gray-100">{{ child.title | t(locale) }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif %}
+            </a>
+
+            {% if item.children and item.children | length %}
+              <!-- Dropdown -->
+              <ul class="absolute left-0 mt-2 border border-white bg-indigo-dye text-white rounded shadow-lg min-w-[200px] opacity-0 invisible transition-opacity duration-200 z-10">
+                {% for child in item.children %}
+                  <li>
+                    <a href="{{ child.url }}" class="block px-4 py-2 hover:text-indigo-dye hover:bg-white">{{ child.title | t(locale) }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+        <!-- Switch lingua -->
+        <li class="ml-4">
+          <a href="/it/" class="hover:underline">IT</a> | 
+          <a href="/en/" class="hover:underline">EN</a>
         </li>
-      {% endfor %}
-      <div class="lang-switch"> <a href="/it/" class="hover:underline">IT</a> | <a href="/en/" class="hover:underline">EN</a> </div>
-    </ul>
-  </nav>
+      </ul>
+    </nav>
+
+    <!-- Menu mobile -->
+    <div class="lg:hidden relative">
+      <input type="checkbox" id="menu-toggle" class="peer hidden">
+      <label for="menu-toggle" class="cursor-pointer p-2">
+        <!-- Icona burger -->
+        <div class="w-6 h-0.5 bg-white mb-1 transition-all"></div>
+        <div class="w-6 h-0.5 bg-white mb-1 transition-all"></div>
+        <div class="w-6 h-0.5 bg-white transition-all"></div>
+      </label>
+
+      <!-- Menu mobile dropdown -->
+      <ul class="absolute right-0 mt-2 bg-indigo-dye text-white w-48 rounded shadow-lg max-h-0 overflow-hidden transition-all duration-300 peer-checked:max-h-96 z-20">
+        {% for item in menu %}
+          <li class="border-b border-indigo-500">
+            <a href="{{ item.url }}" class="block px-4 py-2 hover:bg-indigo-600 flex justify-between items-center">
+              <span><i class="{{ item.icon }}"></i> {{ item.title | t(locale) }}</span>
+              {% if item.children and item.children | length %}
+                <span class="mobile-dropdown-toggle cursor-pointer">+</span>
+              {% endif %}
+            </a>
+
+            {% if item.children and item.children | length %}
+              <!-- Sottovoci mobile -->
+              <ul class="bg-indigo-700 max-h-0 overflow-hidden transition-all duration-300">
+                {% for child in item.children %}
+                  <li>
+                    <a href="{{ child.url }}" class="block px-6 py-2 hover:bg-indigo-600">{{ child.title | t(locale) }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+
+        <li class="px-4 py-2 border-t border-indigo-500">
+          <a href="/it/" class="hover:underline">IT</a> | 
+          <a href="/en/" class="hover:underline">EN</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </header>
+
+<script>
+  // Dropdown desktop con ritardo
+  document.querySelectorAll('nav ul li.relative').forEach(li => {
+    let timeout;
+    const dropdown = li.querySelector('ul');
+
+    if (!dropdown) return;
+
+    li.addEventListener('mouseenter', () => {
+      clearTimeout(timeout);
+      dropdown.style.opacity = '1';
+      dropdown.style.visibility = 'visible';
+    });
+
+    li.addEventListener('mouseleave', () => {
+      timeout = setTimeout(() => {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+      }, 300); // ritardo in ms
+    });
+  });
+
+  // Toggle sottovoci mobile
+  document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const submenu = toggle.closest('li').querySelector('ul');
+      if (submenu) {
+        submenu.classList.toggle('max-h-0');
+        submenu.classList.toggle('max-h-96');
+      }
+    });
+  });
+</script>
