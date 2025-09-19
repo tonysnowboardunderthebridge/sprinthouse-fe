@@ -1,0 +1,57 @@
+[
+  {
+    "title": "Home",
+    "url": "/{{ locale }}/",
+    "icon": "fa-solid fa-house",
+    "children": []
+  },
+  {
+    "title": "menu.sprint",
+    "url": "/{{ locale }}/sprint",
+    "icon": "fa-solid fa-bolt",
+    "children": []
+  },
+  {
+    "title": "menu.new_vehicles",
+    "url": "/{{ locale }}/new-vehicles",
+    "icon": "fa-solid fa-car",
+    "children": []
+  },
+  {
+    "title": "menu.used_vehicles",
+    "url": "/{{ locale }}/used-vehicles",
+    "icon": "fa-solid fa-car-side",
+    "children": []
+  },
+  {
+    "title": "menu.rent",
+    "url": "/{{ locale }}/rent",
+    "icon": "fa-solid fa-key",
+    "children": [
+      {
+        "title": "menu.rent_menu.golf_line",
+        "url": "/{{ locale }}/rent/breve-termine"
+      },
+      {
+        "title": "menu.rent_menu.transport_of_people",
+        "url": "/{{ locale }}/rent/lungo-termine"
+      },
+      {
+        "title": "menu.rent_menu.freight_transport",
+        "url": "/{{ locale }}/rent/lungo-termine"
+      }
+    ]
+  },
+  {
+    "title": "menu.services",
+    "url": "/{{ locale }}/servizi",
+    "icon": "fa-solid fa-wrench",
+    "children": []
+  },
+  {
+    "title": "menu.batteries",
+    "url": "/{{ locale }}/batterie",
+    "icon": "fa-solid fa-battery-full",
+    "children": []
+  }
+]

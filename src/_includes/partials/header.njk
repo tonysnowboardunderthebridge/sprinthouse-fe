@@ -1,0 +1,33 @@
+<header class="bg-[#2a4e66] text-white p-4 flex justify-between items-center">
+  <!-- Logo a sinistra -->
+  <div class="flex items-center space-x-2">
+    <img src="/assets/images/logo.png" alt="Logo" class="w-[140px] h-auto">
+    <span class="font-bold text-xl">Sprinthouse</span>
+  </div>
+
+  <!-- Menu principale a destra -->
+  <nav>
+    <ul class="flex flex-wrap gap-4 items-center">
+      {% for item in menu %}
+        <li class="relative group">
+          <a href="{{ item.url }}" class="flex items-center gap-1 hover:underline">
+            <i class="{{ item.icon }}"></i>
+            <span>{{ item.title | t(locale) }}</span>
+          </a>
+
+          {% if item.children and item.children | length %}
+            <!-- Dropdown menu -->
+            <ul class="absolute left-0 mt-2 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity invisible group-hover:visible min-w-[200px] z-10">
+              {% for child in item.children %}
+                <li>
+                  <a href="{{ child.url }}" class="block px-4 py-2 hover:bg-gray-100">{{ child.title | t(locale) }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+      <div class="lang-switch"> <a href="/it/" class="hover:underline">IT</a> | <a href="/en/" class="hover:underline">EN</a> </div>
+    </ul>
+  </nav>
+</header>

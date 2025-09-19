@@ -1,0 +1,55 @@
+{
+  "it": {
+    "menu": {
+      "home": "Home",
+      "sprint": "Sprint",
+      "new_vehicles": "Veicoli nuovi",
+      "used_vehicles": "Veicoli usati",
+      "rent": "Noleggio",
+      "services": "Servizi",
+      "batteries": "Batterie",
+      "rent_menu": {
+        "golf_line": "Linea Golf",
+        "transport_of_people": "Trasporto persone",
+        "freight_transport": "Trasporto merci"
+      }
+    },
+    "carousel": {
+      "title": "Benvenuto nel nostro sito"
+    },
+    "about": {
+      "title": "Chi siamo",
+      "text": "Sprint è una società nata nel 2005, leader nella vendita, noleggio e assistenza in tutta la Sardegna, di veicoli elettrici ed a motore a scoppio nuovi e usati. Il nostro business è rivolto in special modo a tutte le strutture ricettive, alberghi, resort, villaggi turistici, campeggi, vivai, campi da golf, porti, aeroporti e industrie.",
+      "request_1": "Per richiedere un preventivo o informazioni",
+      "request_2": "Per richiedere assistenza tecnica"
+    },
+    "partners": {
+      "title": "I nostri partner"
+    },
+    "footer": "© 2025 La mia azienda"
+  },
+  "en": {
+    "menu": {
+      "home": "Home",
+      "sprint": "Sprint",
+      "new_vehicles": "New vehicles",
+      "used_vehicles": "Used vehicles",
+      "rent": "Rent",
+      "services": "Services",
+      "batteries": "Batteries"
+    },
+    "carousel": {
+      "title": "Welcome to our website"
+    },
+    "about": {
+      "title": "About us",
+      "text": "Sprint is a company founded in 2005, a leader in the sale, rental, and service of new and used electric and internal combustion engine vehicles throughout Sardinia. Our business is specifically aimed at all hospitality facilities, hotels, resorts, holiday villages, campsites, nurseries, golf courses, ports, airports, and industrial facilities.",
+      "request_1": "To request a quote or information",
+      "request_2": "To request technical assistance"
+    },
+    "partners": {
+      "title": "Our partners"
+    },
+    "footer": "© 2025 My Company"
+  }
+}

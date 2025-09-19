@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ locale | default('it') }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title or "Sito statico" }}</title>
+  <link rel="stylesheet" href="/assets/styles/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="font-sans text-gray-800">
+  {% include "partials/header.njk" %}
+
+  <main class="mx-auto">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+</body>
+</html>

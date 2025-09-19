@@ -1,0 +1,26 @@
+<section id="carousel" class="relative w-full h-full min-h-[calc(100vh-20rem)] overflow-hidden">
+  <div id="carousel-slides" class="w-full h-full min-h-[inherit] relative">
+  {% for slide in carousel %}
+    <div 
+      class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 {% if loop.index0 == 0 %}opacity-100{% else %}opacity-0{% endif %}" 
+      style="background-image: url('{{ slide.image }}')"
+      alt="{{ slide.alt }}">
+    </div>
+  {% endfor %}
+</div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll('#carousel-slides > div');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('opacity-100');
+    slides[current].classList.add('opacity-0');
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.remove('opacity-0');
+    slides[current].classList.add('opacity-100');
+  }, 5000); // cambia ogni 5 secondi
+</script>

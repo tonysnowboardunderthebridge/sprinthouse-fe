@@ -1,0 +1,20 @@
+{
+  "name": "sprinthouse",
+  "version": "1.0.0",
+  "description": "Web page template of sprinthouse with Nunjucks and 11ty",
+  "main": "index.js",
+  "author": "Antonio Sonis anthonysonis@gmail.com",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "build": "npx eleventy",
+    "serve": "npx eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@tailwindcss/postcss": "^4.1.13",
+    "cssnano": "^7.1.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.13"
+  }
+}
